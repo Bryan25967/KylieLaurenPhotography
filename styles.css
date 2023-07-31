@@ -36,6 +36,12 @@ body {
     padding: 20px;
 }
 
+.specalizing {
+    width: 45%;
+    
+}
+
+
 /* Hamburger Menu Styles */
 .menu-icon {
     display: none;
