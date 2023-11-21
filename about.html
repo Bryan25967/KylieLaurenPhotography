@@ -3,12 +3,142 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Website - About</title>
+    <title>Kylie DeFabio Photography - Gallery</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #e0e0e0; /* Slightly darker background color */
+        }
+
+        .gallery-img {
+            width: 90%;
+            max-width: 100%;
+            height: auto;
+            border-radius: 8%;
+            display: block;
+            margin: 0 auto; /* Center the image */
+            background-color: #f0f0f0; /* Very light grey background */
+        }
+
+        .image-gallery {
+            text-align: center;
+            position: relative;
+            margin-top: 50px;
+        }
+
+        .back-button,
+        .forward-button {
+            position: absolute;
+            top: 50%;
+            font-size: 24px;
+            background-color: #3498db;
+            color: #fff;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transform: translateY(-50%);
+        }
+
+        .back-button {
+            left: 10%;
+        }
+
+        .forward-button {
+            right: 10%;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: rgba(169, 169, 169, 0.8); /* Darker grey background with 0.8 opacity */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 24px;
+            color: #3498db;
+            font-weight: bold;
+        }
+
+        .logo a {
+            text-decoration: none;
+            color: #3498db;
+            font-weight: bold;
+        }
+
+        .menu-icon {
+            cursor: pointer;
+        }
+
+        .menu {
+            list-style: none;
+            display: flex;
+        }
+
+        .menu li {
+            margin-left: 20px;
+        }
+
+        .content {
+            text-align: center;
+            padding: 100px 20px 20px; /* Adjusted padding */
+        }
+
+        h1 {
+            margin-top: 0;
+            color: #3498db;
+            font-size: 36px;
+            font-weight: bold;
+        }
+
+        p {
+            display: none;
+        }
+
+        .footer {
+            background-color: #f0f0f0; /* Adjusted background color for the footer */
+            color: #333; /* Dark font color for the footer */
+            text-align: center;
+            padding: 20px;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .social-icons a {
+            margin: 0 10px;
+        }
+
+        .contact-us-link {
+            color: #3498db; /* Blue font color */
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            padding: 4%; /* 4% padding */
+            display: inline-block;
+            margin-top: 4%; /* 4% margin-top */
+            font-family: cursive;
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar">
-        <div class="logo">My Website</div>
+        <div class="logo"><a href="index.html">Kylie DeFabio Photography</a></div>
         <div class="menu-icon" onclick="toggleMenu()">
             <div class="bar"></div>
             <div class="bar"></div>
@@ -22,14 +152,53 @@
         </ul>
     </nav>
 
+    <!-- Image Gallery -->
+    <div class="image-gallery">
+        <button type="button" class="back-button" onclick="showPrevImage()">&lt;&lt; Back</button>
+        <img src="./images/DSC_9347.jpg" alt="" class="gallery-img" id="galleryImage">
+        <button type="button" class="forward-button" onclick="showNextImage()">Forward &gt;&gt;</button>
+    </div>
+
     <div class="content">
         <h1>Our Vision: A glimpse into our creative journey.</h1>
         <p>Meet Kylie Lauren DeFabio, a photographer whose artistry transcends boundaries and touches the soul. With an innate talent for capturing profound emotions and fleeting moments, Kylie's lens paints a vivid tapestry of life's beauty. Her passion and dedication to her craft make her an extraordinary storyteller, weaving tales of enchantment through her images. Step into her world, where every frame becomes an immersive experience, and where the essence of each subject is immortalized with grace. Embrace the captivating artistry of Kylie Lauren DeFabio, where photography becomes a poetic journey of discovery.</p>
     </div>
-<section class="image">
-    <img src="./Images/DSC_9347.jpg" alt="" width="50%" height="450em" style="border-radius: 8%; "/>
-</section>
+
+    <div class="footer">
+        <div class="social-icons">
+            <!-- Replace these URLs with your actual social media URLs -->
+            <a href="#" target="_blank"><img src="facebook-icon.png" alt="Facebook"></a>
+            <a href="#" target="_blank"><img src="instagram-icon.png" alt="Instagram"></a>
+            <a href="#" target="_blank"><img src="twitter-icon.png" alt="Twitter"></a>
+        </div>
+        <a href="contact.html" class="contact-us-link">Contact Us</a>
+    </div>
+
     <script src="script.js"></script>
+    <script>
+        var currentImageIndex = 0;
+        var imageArray = [
+            "./images/DSC_9347.jpg",
+            "./Images/DSC_9320.jpg",
+            "./Images/DSC_7496.jpg",
+            "./Images/DSC_9470.jpg"
+            // Add more image URLs here
+        ];
+
+        function showNextImage() {
+            currentImageIndex = (currentImageIndex + 1) % imageArray.length;
+            document.getElementById("galleryImage").src = imageArray[currentImageIndex];
+        }
+
+        function showPrevImage() {
+            currentImageIndex = (currentImageIndex - 1 + imageArray.length) % imageArray.length;
+            document.getElementById("galleryImage").src = imageArray[currentImageIndex];
+        }
+
+        function toggleMenu() {
+            var menu = document.querySelector('.menu');
+            menu.classList.toggle('active');
+        }
+    </script>
 </body>
 </html>
-
