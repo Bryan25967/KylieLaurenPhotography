@@ -185,6 +185,22 @@ var imageArray = [
     // Add more image URLs here
 ];
 
+function showNextImage() {
+    currentImageIndex = (currentImageIndex + 1) % imageArray.length;
+    document.getElementById("galleryImage").src = imageArray[currentImageIndex];
+}
+
+function showPrevImage() {
+    currentImageIndex = (currentImageIndex - 1 + imageArray.length) % imageArray.length;
+    document.getElementById("galleryImage").src = imageArray[currentImageIndex];
+}
+
+function toggleMenu() {
+    var menu = document.querySelector('.menu');
+    menu.classList.toggle('active');
+}
+
+
 
 
 
