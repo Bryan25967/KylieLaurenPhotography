@@ -40,7 +40,7 @@ body {
     width: 45%;
     
 }
-
+DSC_9470.jpg
 
 /* Hamburger Menu Styles */
 .menu-icon {
@@ -74,3 +74,20 @@ body {
         width: 100%;
     }
 }
+
+.gallery-buttons-container {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 20px; /* Adjust this value to control the vertical position */
+    z-index: 1001; /* Make sure it's above other elements */
+}
+
+.back-button {
+    position: fixed;
+    left: 10px; /* Adjust this value to control the horizontal position from the left */
+    top: 50%;
+    transform: translateY(-50%);
+    margin-right: 20px; /* Optional margin to separate the back button from the forward button */
+}
+
