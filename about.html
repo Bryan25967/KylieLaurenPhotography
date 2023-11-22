@@ -156,10 +156,15 @@
 
     <!-- Image Gallery -->
     <div class="image-gallery">
-        <button type="button" class="back-button" onclick="showPrevImage()">&lt;&lt; Back</button>
-        <img src="./images/DSC_9347.jpg" alt="" class="gallery-img" id="galleryImage">
-        <button type="button" class="forward-button" onclick="showNextImage()">Forward &gt;&gt;</button>
-    </div>
+        <div class="image-gallery">
+            <img src="./images/DSC_9794.jpg" alt="" class="gallery-img" id="galleryImage">
+        </div>
+        
+        <!-- Gallery Buttons Container -->
+        <div class="gallery-buttons-container">
+            <button type="button" class="back-button" onclick="showPrevImage()">&lt;&lt; Back</button>
+            <button type="button" class="forward-button" onclick="showNextImage()">Forward &gt;&gt;</button>
+        </div>
 
     <div class="content">
         <h1>Our Vision: A glimpse into our creative journey.</h1>
@@ -180,7 +185,8 @@
     <script>
         var currentImageIndex = 0;
         var imageArray = [
-            "Images/B-Day - Copy.png",
+            "./images/DSC_9470.jpg",
+            "./images/DSC_9320.jpg",
             "./images/DSC_9320.jpg",
             "./images/DSC_9320.jpg"
             // Add more image URLs here
